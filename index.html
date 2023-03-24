@@ -1,68 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Blog</title>
-    <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>My Blog</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Helvetica Neue', sans-serif;
+		}
+		header {
+			background-color: #000;
+			padding: 1rem;
+		}
+		h1 {
+			font-size: 3rem;
+			font-weight: bold;
+			color: #fff;
+			margin: 0 auto;
+			text-align: center;
+			position: relative;
+			transition: font-size 0.3s ease-in-out;
+		}
+		h1:hover {
+			font-size: 4rem;
+		}
+		main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: calc(100vh - 120px);
+		}
+		a {
+			display: inline-block;
+			background-color: #000;
+			color: #fff;
+			border: 2px solid #fff;
+			padding: 1rem 2rem;
+			margin: 2rem;
+			text-decoration: none;
+			font-weight: bold;
+			transition: all 0.3s ease-in-out;
+		}
+		a:hover {
+			transform: scale(1.2);
+			box-shadow: 0px 0px 10px #ccc;
+		}
+		footer {
+			background-color: #eee;
+			padding: 1rem;
+			text-align: center;
+			font-size: 0.8rem;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+		}
+		.popup {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 1;
+			visibility: hidden;
+			opacity: 0;
+			transition: all 0.3s ease-in-out;
+		}
+		.popup.active {
+			visibility: visible;
+			opacity: 1;
+		}
+		.popup-content {
+			background-color: #fff;
+			padding: 2rem;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px #ccc;
+			text-align: center;
+			font-weight: bold;
+			font-size: 2rem;
+		}
+		#popup-trigger {
+			display: inline-block;
+			background-color: #f0f0f0;
+			color: #000;
+			border: none;
+			padding: 1rem 2rem;
+			margin: 2rem;
+			text-decoration: none;
+			font-weight: bold;
+			transition: all 0.3s ease-in-out;
+			cursor: pointer;
+		}
+		#popup-trigger:hover {
+			transform: scale(1.2);
+			box-shadow: 0px 0px 10px #ccc;
+		}
+	</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#" class="logo">My Blog</a>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="burger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </nav>
-
-        <div class="intro">
-            <h1>Welcome to My Blog</h1>
-            <p>Here, you will find interesting and informative blog posts on a variety of topics.</p>
-            <a href="#" class="btn">Read More</a>
-        </div>
-    </header>
-
-    <section class="blog-posts">
-        <div class="post">
-            <img src="https://picsum.photos/id/100/400/300" alt="Blog Post Image">
-            <div class="post-content">
-                <h2>My First Blog Post</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel nisi non ipsum lacinia rhoncus.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-        </div>
-
-        <div class="post">
-            <img src="https://picsum.photos/id/101/400/300" alt="Blog Post Image">
-            <div class="post-content">
-                <h2>My Second Blog Post</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel nisi non ipsum lacinia rhoncus.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-        </div>
-
-        <div class="post">
-            <img src="https://picsum.photos/id/102/400/300" alt="Blog Post Image">
-            <div class="post-content">
-                <h2>My Third Blog Post</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel nisi non ipsum lacinia rhoncus.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 My Blog. All Rights Reserved.</p>
-    </footer>
-
-    <script src="app.js"></script>
+	<header>
+		<h1>My Blog</h1>
+	</header>	
+	<main>
+		<a href="#">Homepage</a>
+		<a href="github.html">Contact</a>
+		<button id="popup-trigger">Click here</button>
+		<div class="popup">
+			<div class="popup-content">
+				HI, Welcome to my blog!
+			</div>
+		</div>
+	</main>
+	<footer>
+		<p>Copyright &copy; 2023</p>
+	</footer>
+	<script>
+		const popupTrigger = document.getElementById('popup-trigger');
+		const popup = document.querySelector('.popup');
+		
+		popupTrigger.addEventListener('click', () => {
+			popup.classList.add('active');
+			setTimeout(() => {
+				popup.classList.remove('active');
+			}, 2000);
+		});
+	</script>
 </body>
 </html>
