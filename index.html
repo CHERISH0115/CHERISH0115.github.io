@@ -32,7 +32,7 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			height: calc(100vh - 120px);
+			height: calc(100vh - 80px);
 		}
 		a {
 			display: inline-block;
@@ -58,79 +58,18 @@
 			bottom: 0;
 			width: 100%;
 		}
-		.popup {
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: rgba(0, 0, 0, 0.5);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			z-index: 1;
-			visibility: hidden;
-			opacity: 0;
-			transition: all 0.3s ease-in-out;
-		}
-		.popup.active {
-			visibility: visible;
-			opacity: 1;
-		}
-		.popup-content {
-			background-color: #fff;
-			padding: 2rem;
-			border-radius: 10px;
-			box-shadow: 0px 0px 10px #ccc;
-			text-align: center;
-			font-weight: bold;
-			font-size: 2rem;
-		}
-		#popup-trigger {
-			display: inline-block;
-			background-color: #f0f0f0;
-			color: #000;
-			border: none;
-			padding: 1rem 2rem;
-			margin: 2rem;
-			text-decoration: none;
-			font-weight: bold;
-			transition: all 0.3s ease-in-out;
-			cursor: pointer;
-		}
-		#popup-trigger:hover {
-			transform: scale(1.2);
-			box-shadow: 0px 0px 10px #ccc;
-		}
 	</style>
 </head>
 <body>
 	<header>
 		<h1>My Blog</h1>
-	</header>	
+	</header>
 	<main>
 		<a href="#">Homepage</a>
 		<a href="github.html">Contact</a>
-		<button id="popup-trigger">Click here</button>
-		<div class="popup">
-			<div class="popup-content">
-				HI, Welcome to my blog!
-			</div>
-		</div>
 	</main>
 	<footer>
-		<p>Copyright &copy; 2023</p>
+		<p>&copy; 2023 My Blog. All rights reserved.</p>
 	</footer>
-	<script>
-		const popupTrigger = document.getElementById('popup-trigger');
-		const popup = document.querySelector('.popup');
-		
-		popupTrigger.addEventListener('click', () => {
-			popup.classList.add('active');
-			setTimeout(() => {
-				popup.classList.remove('active');
-			}, 2000);
-		});
-	</script>
 </body>
 </html>
