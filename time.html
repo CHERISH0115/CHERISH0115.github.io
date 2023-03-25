@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>电子时钟</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #222;
+        color: #fff;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 5em;
+        font-weight: bold;
+        text-shadow: 0 0 20px #fff;
+        letter-spacing: 0.05em;
+      }
+
+      .clock-wrapper {
+        position: relative;
+      }
+
+      .clock-wrapper:before,
+      .clock-wrapper:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+      }
+
+      .clock-wrapper:before {
+        width: 16em;
+        height: 16em;
+        background-color: #000;
+        opacity: 0.2;
+        z-index: -1;
+      }
+
+      .clock-wrapper:after {
+        width: 0.6em;
+        height: 0.6em;
+        background-color: #fff;
+      }
+
+      .clock-wrapper:hover:after {
+        background-color: #f00;
+        animation: pulse 1s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(2);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock-wrapper">
+      <h1 id="clock"></h1>
+    </div>
+
+    <script>
+      function updateTime() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        hours = hours < 10 ? "0" + hours : hours;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        var timeString = hours + ":" + minutes + ":" + seconds;
+
+        document.getElementById("clock").innerHTML = timeString;
+      }
+
+      updateTime();
+      setInterval(updateTime, 1000);
+    </script>
+  </body>
+</html>
