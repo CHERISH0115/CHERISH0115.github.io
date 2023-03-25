@@ -3,135 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>My Blog</title>
-	<style>
-		header {
-		  display: flex;
-		  justify-content: center;
-		  align-items: center;
-		  height: 60px;
-		  background-color: #000;
-		  color: #fff;
-		}
-
-		#logo {
-		  font-size: 24px;
-		  font-weight: bold;
-		  animation: rainbow 5s infinite;
-		}
-
-		@keyframes rainbow {
-		  0% {
-		    color: #ff2e2e;
-		  }
-		  14% {
-		    color: #ff7f2a;
-		  }
-		  28% {
-		    color: #ffff00;
-		  }
-		  42% {
-		    color: #00ff00;
-		  }
-		  57% {
-		    color: #00bfff;
-		  }
-		  71% {
-		    color: #3d28e3;
-		  }
-		  85% {
-		    color: #9b30ff;
-		  }
-		  100% {
-		    color: #ff2e2e;
-		  }
-		}
-
-		body {
-			margin: 0;
-			padding: 0;
-			font-family: Arial, sans-serif;
-		}
-
-		main {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			height: 80vh;
-			background-color: #f7f7f7;
-		}
-
-		a {
-			display: inline-block;
-			margin: 10px;
-			padding: 10px 20px;
-			font-size: 18px;
-			font-weight: bold;
-			color: #fff;
-			background-color: #000;
-			border-radius: 10px;
-			text-decoration: none;
-			transition: all 0.3s ease;
-		}
-
-		a:hover {
-			transform: scale(1.1);
-		}
-
-		button {
-			margin: 10px;
-			padding: 10px 20px;
-			font-size: 18px;
-			font-weight: bold;
-			color: #fff;
-			background-color: #000;
-			border-radius: 10px;
-			border: none;
-			cursor: pointer;
-			transition: all 0.3s ease;
-		}
-
-		button:hover {
-			transform: scale(1.1);
-		}
-
-		.popup {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.5);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			opacity: 0;
-			visibility: hidden;
-			transition: opacity 0.3s ease, visibility 0.3s ease;
-		}
-
-		.popup.active {
-			opacity: 1;
-			visibility: visible;
-		}
-
-		.popup-content {
-			background-color: #fff;
-			padding: 20px;
-			border-radius: 10px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-		}
-
-		footer {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: 60px;
-			background-color: #000;
-			color: #fff;
-			font-size: 14px;
-		}
-	</style>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<header>
@@ -139,10 +11,23 @@
 	</header>
 	<main>
 		<a href="#">Homepage</a>
-		<a href="github.html">Contact</a>
+		<a href="contact.html">Contact</a>
+		<button id="bgButton">Change Background</button>
+		<div class="popup" id="popup">
+			<div class="popup-content">
+				<h2>Select a Background</h2>
+				<div class="background-options">
+					<div class="background-option" data-bg="background1.jpg" style="background-image: url('background1.jpg');"></div>
+					<div class="background-option" data-bg="background2.jpg" style="background-image: url('background2.jpg');"></div>
+					<div class="background-option" data-bg="background3.jpg" style="background-image: url('background3.jpg');"></div>
+				</div>
+				<button id="closeButton">Close</button>
+			</div>
+		</div>
 	</main>
 	<footer>
 		<p>&copy; 2023 My Blog. All rights reserved.</p>
 	</footer>
+	<script src="script.js"></script>
 </body>
 </html>
