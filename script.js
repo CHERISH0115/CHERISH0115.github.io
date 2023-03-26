@@ -1,4 +1,4 @@
-// get the main element
+// get the main element 
 const main = document.querySelector("main");
 
 // create an array of colors
